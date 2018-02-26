@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define MAXTOKS
 
 struct name {
   char **tok;
@@ -8,17 +9,20 @@ struct name {
 };
 
 int read_name(struct name* input) {
-  char *line;
-    size_t size;
-    size_t chars;
+  
+  input -> tok = malloc(MAXTOKS sizeof(char *));
+  char *line; 
+  size_t size;
+  size_t chars;
     chars = getline(&line, &size, stdin);
+    input -> tok[0] = line;
 
     if (chars == -1) {
       printf("There is no input.\n");
     }
     else {
       printf("%zu characters were read.\n", chars-1); 
-      printf("you typed : %s \n", line);    
+      printf("you typed : %s \n", input->tok[0]);    
     }
     return 0;
 }
