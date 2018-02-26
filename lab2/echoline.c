@@ -1,15 +1,23 @@
 #include <stdio.h>
+#include <stdlib.h>
+
 
 int main()
 {
     char *line;
     size_t size;
+    size_t chars;
 
-    if (getline(&line, &size, stdin) == -1) {
+    printf("Type something: ");
+    line = (char *)malloc(size * sizeof(char));
+    chars = getline(&line, &size, stdin);
+
+    if (chars == -1) {
       printf("There is no input.\n");
     }
     else {
-      printf("%s\n", line);
+      printf("%zu characters were read.\n", chars-1); 
+      printf("you typed : %s \n", line);    
     }
     return 0;
 }
