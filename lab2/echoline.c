@@ -18,7 +18,7 @@ int main()
 
   printf("Please type something: ");
   chars = getline(&buffer, &buffsize, stdin);
-  printf("%zu characters were read. \n", chars);
+  printf("%zu characters were read. \n", chars-1);
   printf("You typed: %s\n", buffer);
   return(0);
 }
