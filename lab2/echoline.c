@@ -1,24 +1,16 @@
 #include <stdio.h>
-#include <stdlib.h>
-
-int input(char *s, int length);
 
 int main()
 {
-  char *buffer;
-  size_t buffsize = 32;
-  size_t chars;
+    char *line;
+    size_t size;
 
-  buffer = (char *)malloc(buffsize * sizeof(char));
-  if(buffer == NULL)
-    {
-      perror("Unable to allocate buffer");
-      exit(1);
+    if (getline(&line, &size, stdin) == -1) {
+      printf("There is no input.\n");
     }
-
-  printf("Please type something: ");
-  chars = getline(&buffer, &buffsize, stdin);
-  printf("%zu characters were read. \n", chars-1);
-  printf("You typed: %s\n", buffer);
-  return(0);
+    else {
+      printf("%s\n", line);
+    }
+    return 0;
 }
+
