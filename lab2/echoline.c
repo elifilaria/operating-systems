@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+struct name {
+  char **tok;
+  int count;
+  int status;
+};
 
-int main()
-{
-    char *line;
+int read_name(struct name* input) {
+  char *line;
     size_t size;
     size_t chars;
-
-    printf("Type something: ");
-    line = (char *)malloc(size * sizeof(char));
     chars = getline(&line, &size, stdin);
 
     if (chars == -1) {
@@ -20,5 +21,13 @@ int main()
       printf("you typed : %s \n", line);    
     }
     return 0;
+}
+
+
+int main()
+{
+  struct name buffer;
+  read_name(&buffer);
+
 }
 
