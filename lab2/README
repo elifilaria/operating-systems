@@ -1,0 +1,1 @@
+It is not possible to cause an input error in this file because getline allocates the initial buffer by calling malloc and in my program the only way to generate an error is for the buffer to be NULL.
