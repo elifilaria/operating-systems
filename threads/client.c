@@ -69,7 +69,39 @@ int main(int argc, char **argv) {
     perror("send()");
     return 1;
   }
-  printf("%d characters sent\n", ret);
+
+  int numchar = 0;
+ // int charl; = 0;
+  int numline = 0;
+  char *buff2;
+  fprintf(stdout, "Server message beings\n");
+ // char buff2[nchars];  /* message buffer */
+  int ret2;  /* return value from a call */
+  while (1){
+    buff2 = malloc(MAXBUFF*sizeof(char));
+        //printf("la11111lalallala");
+   if ((ret = recv(sd, buff2, MAXBUFF-1, 0)) < 0) {
+    fprintf(stdout, "End of server\n");
+     // printf("lalalallala");
+/*   printf("%s ", buff2);/*
+    perror("recv()");
+    return 1;*/
+    break;
+  }
+  else{
+    numline++;
+    numchar+=ret2;
+    buff2[ret2] = '\0';
+    fprintf(stdout, "%s", buff2);
+    free(buff2);
+    ret2 = 0;
+
+  }
+
+printf("%d characters sent\n", numchar);
+}
+
+  //printf("%d characters sent\n", ret);
   if ((ret = close(sd)) < 0) {
     printf("%s ", prog);
     perror("close()");
