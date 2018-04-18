@@ -10,6 +10,7 @@
 #include <netinet/in.h>
 #include <unistd.h>
 #include "copyfile.c"
+#include <time.h>
 #define MAXBUFF 100
 #define MAXTOKS 100
 /*
@@ -144,11 +145,18 @@ int main(int argc, char **argv, char **envp) {
   char *prog = argv[0];
   int port;
   int serverd;  /* socket descriptor for receiving new connections */
+  FILE *pFile2;
+  time_t now;
+  char timestamp[30];
+  now = time(NULL);
 
+  pFile2 = fopen("log.txt", "a");
   if (argc < 2) {
     printf("Usage:  %s port\n", prog);
     return 1;
   }
+
+
   port = atoi(argv[1]);
 
   if ((serverd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
@@ -201,7 +209,15 @@ int main(int argc, char **argv, char **envp) {
   buff[ret] = '\0';  // add terminating nullbyte to received array of char
   printf("Received message (%d chars):\n%s\n", ret, buff);
   //printf("%s\n", envp);
-  
+  if(pFile2 == NULL)
+    perror("Error appending to file.\n");
+  else
+    fprintf(pFile2, "%s ", buff);
+
+  if(strftime(timestamp, 30, "%a, %d %b %Y %T %Z", gmtime(&now)) == 0)
+    printf("Error getting the timestamp\n");
+  else
+    fprintf(pFile2, "%s\n", timestamp);
  
  // buffer.tok = buff;
   read_name(&buffer, envp, buff);
@@ -216,5 +232,6 @@ int main(int argc, char **argv, char **envp) {
     perror("close(serverd)");
     return 1;
   }
+  fclose(pFile2);
   return 0;
 }
