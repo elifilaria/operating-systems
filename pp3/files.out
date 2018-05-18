@@ -1,0 +1,18 @@
+Only in /home/askoul1/pp3-mkpatch/work/linux-4.14.37: .18557.d
+Only in /home/askoul1/pp3-mkpatch/work/linux-4.14.37: .20472.d
+Files dist/linux-4.14.37/arch/x86/entry/syscalls/syscall_32.tbl and /home/askoul1/pp3-mkpatch/work/linux-4.14.37/arch/x86/entry/syscalls/syscall_32.tbl differ
+Files dist/linux-4.14.37/arch/x86/entry/syscalls/syscall_64.tbl and /home/askoul1/pp3-mkpatch/work/linux-4.14.37/arch/x86/entry/syscalls/syscall_64.tbl differ
+Only in /home/askoul1/pp3-mkpatch/work/linux-4.14.37: blah.config
+Only in /home/askoul1/pp3-mkpatch/work/linux-4.14.37/certs: signing_key.pem
+Only in /home/askoul1/pp3-mkpatch/work/linux-4.14.37/certs: signing_key.x509
+Only in /home/askoul1/pp3-mkpatch/work/linux-4.14.37/certs: x509.genkey
+Only in /home/askoul1/pp3-mkpatch/work/linux-4.14.37: .config
+Only in /home/askoul1/pp3-mkpatch/work/linux-4.14.37: first.config
+Only in /home/askoul1/pp3-mkpatch/work/linux-4.14.37: hello
+Files dist/linux-4.14.37/include/linux/syscalls.h and /home/askoul1/pp3-mkpatch/work/linux-4.14.37/include/linux/syscalls.h differ
+Only in /home/askoul1/pp3-mkpatch/work/linux-4.14.37: info
+Files dist/linux-4.14.37/kernel/sys.c and /home/askoul1/pp3-mkpatch/work/linux-4.14.37/kernel/sys.c differ
+Files dist/linux-4.14.37/Makefile and /home/askoul1/pp3-mkpatch/work/linux-4.14.37/Makefile differ
+Only in /home/askoul1/pp3-mkpatch/work/linux-4.14.37/tools/objtool/arch/x86/lib: inat-tables.c
+Only in /home/askoul1/pp3-mkpatch/work/linux-4.14.37/tools/objtool: fixdep
+Only in /home/askoul1/pp3-mkpatch/work/linux-4.14.37/tools/objtool: objtool
